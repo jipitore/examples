@@ -25,7 +25,25 @@ public class ExamplesApplicationTests {
 
     @Test
     public void test() {
+        List<Figure> figures = buildFigures();
+        print(figures);
+        System.out.println("------------------------------------");
+        figures = mapToSquare(figures);
+        print(figures);
+    }
 
+    private List<Figure> mapToSquare(List<Figure> figures) {
+        figures = figures.stream()
+                .map(figure -> {
+                    Figure sq = new Square();
+                    sq.setName(figure.getName());
+                    return sq;
+                })
+                .collect(Collectors.toList());
+        return figures;
+    }
+
+    private List<Figure> buildFigures() {
         List<Figure> figures = new ArrayList<>();
 
         Circle c = new Circle();
@@ -44,7 +62,7 @@ public class ExamplesApplicationTests {
         t.setName("Triangle 2");
         figures.add(t);
 
-//        CircleV2 circleV2 = new CircleV2();
+        //        CircleV2 circleV2 = new CircleV2();
 //        circleV2.setName("Circle V2");
 //        circleV2.setFieldV2(10);
 //        figures.add(circleV2);
@@ -54,20 +72,7 @@ public class ExamplesApplicationTests {
 
         figures.add(h);
 
-        print(figures);
-
-        System.out.println("------------------------------------");
-
-        figures = figures.stream()
-                .map(figure -> {
-                    Figure sq = new Square();
-                    sq.setName(figure.getName());
-                    return sq;
-                })
-                .collect(Collectors.toList());
-
-        print(figures);
-
+        return figures;
     }
 
     private void print(List<Figure> figures) {
