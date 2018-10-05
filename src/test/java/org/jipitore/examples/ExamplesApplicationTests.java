@@ -62,10 +62,10 @@ public class ExamplesApplicationTests {
         t.setName("Triangle 2");
         figures.add(t);
 
-        //        CircleV2 circleV2 = new CircleV2();
-//        circleV2.setName("Circle V2");
-//        circleV2.setFieldV2(10);
-//        figures.add(circleV2);
+        CircleV2 circleV2 = new CircleV2();
+        circleV2.setName("Circle V2");
+        circleV2.setFieldV2(10);
+        figures.add(circleV2);
 
         Hexagon h = Hexagon.builder().build();
         h.setName("Hexagon 1");
