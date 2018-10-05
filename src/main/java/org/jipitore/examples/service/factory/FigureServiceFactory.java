@@ -14,11 +14,10 @@ public class FigureServiceFactory {
     private List<FigureService> figureServices;
 
     public FigureService getService(Class clazz) throws Exception {
-        Optional<FigureService> service = figureServices.stream()
+        return figureServices.stream()
                 .filter(s -> s.canHandle(clazz))
-                .findFirst();
-
-        return service.orElseThrow(() -> new Exception(clazz.getName() + " service implementation not found"));
+                .findFirst()
+                .orElseThrow(() -> new Exception(clazz.getName() + " service implementation not found"));
     }
 
 }
