@@ -32,15 +32,14 @@ public class ExamplesApplicationTests {
         print(figures);
     }
 
-    private List<Figure> mapToSquare(List<Figure> figures) {
-        figures = figures.stream()
+    private List<Square> mapToSquare(List<Figure> figures) {
+        return figures.stream()
                 .map(figure -> {
-                    Figure sq = new Square();
+                    Square sq = new Square();
                     sq.setName(figure.getName());
                     return sq;
                 })
                 .collect(Collectors.toList());
-        return figures;
     }
 
     private List<Figure> buildFigures() {
